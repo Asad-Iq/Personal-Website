@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+/* HERO */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+/* ABOUT */
+#about {
+    padding: 50px;
+    text-align: center;
+}
+/* PROJECTS */
+#projects {
+    padding: 50px;
+    text-align: center;
+}
+/* PHOTOGRAPHY */
+#photography {
+    padding: 50px;
+    text-align: center;
+}
+/* WRITING */
+#writing {
+    padding: 50px;
+    text-align: center;
+}
+/* CONTACT */
+#contact {
+    padding: 50px;
+    text-align: center;
+}
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  font-size: 22px;
+  color: white;
+  background: #333;
+  border-radius: 50%;
+
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  transform: scale(1.1);
+}
+.socials a:nth-child(1):hover { background: #000000; }       /* GitHub */
+.socials a:nth-child(2):hover { background: #0077b5; }    /* LinkedIn */
+.socials a:nth-child(3):hover { background: #e4405f; }    /* Instagram */
+.icon {
+  line-height: 1;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Left + Right stay at edges */
+
+/* THIS is the key part */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Keep icons neat */
+.socials {
+  display: flex;
+  gap: 15px;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+  background: #111;
+  color: white;
+
+  z-index: 1000; /* keeps it above everything */
+}
+body {
+  padding-top: 80px; /* match navbar height */
+}
+html {
+  scroll-behavior: smooth;
+}
+.navbar {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(10px);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* NAVBAR LAYOUT */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #111;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* NAV LINKS */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 20px; /* reduce if needed */
+  box-sizing: border-box;
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  background: #111;
+  display: none;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.dropdown.active .dropdown-content {
+  display: flex;
+}
+.dropdown {
+  margin-left: 15px;
+}
