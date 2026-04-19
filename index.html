@@ -6,6 +6,10 @@
     <title>Asad Iqbal | Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("444iXREWTMyGI15lX");
+</script>
 </head>
 <body>
 <header class="navbar">
@@ -15,9 +19,9 @@
 
   <div class="nav-center">
     <div class="socials">
-      <a href="#"><i class="fab fa-github icon"></i></a>
-      <a href="#"><i class="fab fa-linkedin icon"></i></a>
-      <a href="#"><i class="fab fa-instagram icon"></i></a>
+      <a href="https://github.com/asad-iq" target="_blank"><i class="fab fa-github icon"></i></a>
+      <a href="https://linkedin.com/in/asad-i-79b5a4239/" target="_blank"><i class="fab fa-linkedin icon"></i></a>
+      <a href="https://instagram.com/asad.ai_/" target="_blank"><i class="fab fa-instagram icon"></i></a>
     </div>
   </div>
 
@@ -28,11 +32,14 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#photography">Photography</a>
+        <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </div>
 </header>
+<section id="home">
     <!-- HERO -->
     <section class="hero">
         <h1>
@@ -42,6 +49,7 @@
         <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
   Contact Me
 </button>
+
     </section>
     <!-- ABOUT -->
     <section id="about">
@@ -102,9 +110,18 @@
     </section>
     <!-- CONTACT -->
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Get in touch!</p>
-    </section>  
+  <div class="chatbox">
+    <h2>Contact Me</h2>
+
+    <input type="text" id="name" placeholder="Your name">
+    <input type="email" id="email" placeholder="Your email">
+    <textarea id="message" placeholder="Your message"></textarea>
+
+    <button onclick="sendEmail()">Send</button>
+
+    <p id="status"></p>
+  </div>
+</section>  
     <script src="script.js"></script>
 </body>
 </html>

@@ -256,3 +256,52 @@ nav a {
   transform: translateY(0);
   pointer-events: auto;
 }
+section {
+  padding-top: 80px;
+}
+section {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+section {
+  scroll-margin-top: 80px;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body {
+  margin: 0;
+}
+
+.hero {
+  width: 100%;
+}
+.chatbox {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatbox input,
+.chatbox textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.chatbox button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}

@@ -1,4 +1,7 @@
 function scrollToProjects() {
+    document.getElementById("home").scrollIntoView({
+        behavior: "smooth"
+    });
     document.getElementById("about").scrollIntoView({
         behavior: "smooth"
     });
@@ -46,3 +49,19 @@ dropdown.addEventListener("click", function () {
 toggle.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
+function sendEmail() {
+  const params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+
+  emailjs.send("service_4hvpjcp", "template_6jvjbkp", params)
+    .then(() => {
+      document.getElementById("status").innerText = "Message sent!";
+    })
+    .catch((err) => {
+  console.log("EMAILJS ERROR:", err);
+  document.getElementById("status").innerText = "Failed: check console";
+})
+}
