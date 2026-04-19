@@ -38,13 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
   button.addEventListener("click", () => {
     dropdown.classList.toggle("active");
   });
+
+dropdown.addEventListener("click", function () {
+  this.classList.toggle("open");
+});
 });
 toggle.addEventListener("click", () => {
   menu.classList.toggle("active");
-});
-const dropdown = document.querySelector(".dropdown");
-const button = document.querySelector(".dropbtn");
-
-button.addEventListener("click", () => {
-  dropdown.classList.toggle("active");
 });

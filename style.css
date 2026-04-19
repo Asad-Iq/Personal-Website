@@ -191,20 +191,68 @@ nav a {
 }
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 
+/* Button (hamburger) */
+.dropbtn {
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown box */
 .dropdown-content {
   position: absolute;
   right: 0;
-  background: #111;
-  display: none;
-  flex-direction: column;
+  top: 40px;
+
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(10px);
   min-width: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* hidden state */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.dropdown.active .dropdown-content {
-  display: flex;
+/* links */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-.dropdown {
-  margin-left: 15px;
+
+.dropdown-content a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(5px);
+}
+
+/* SHOW STATE (hover OR JS toggle) */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* optional: rotate hamburger on hover */
+.dropdown:hover .dropbtn {
+  transform: rotate(90deg);
+}
+/* override hover system */
+.dropdown.open .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
