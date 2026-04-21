@@ -11,6 +11,38 @@
   emailjs.init("444iXREWTMyGI15lX");
 </script>
 </head>
+<script>
+const data = {
+  company1: {
+    title: "Company A",
+    text: "Did some cool stuff here for Company A."
+  },
+  company2: {
+    title: "Company B",
+    text: "Worked on interesting projects at Company B."
+  },
+  company3: {
+    title: "Company C",
+    text: "Built and improved systems at Company C."
+  }
+};
+
+function showContent(company) {
+  const content = document.getElementById("experience-content");
+
+  content.innerHTML = `
+    <h2>${data[company].title}</h2>
+    <p>${data[company].text}</p>
+  `;
+
+  // highlight active button
+  document.querySelectorAll(".experience-sidebar button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  event.target.classList.add("active");
+}
+</script>
 <body>
 <header class="navbar">
   <div class="nav-left">
