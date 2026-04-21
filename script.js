@@ -65,3 +65,32 @@ function sendEmail() {
   document.getElementById("status").innerText = "Failed: check console";
 })
 }
+const data = {
+  company1: {
+    title: "Company A",
+    text: "Worked on X, built Y, learned Z."
+  },
+  company2: {
+    title: "Company B",
+    text: "Did research, solved problems, broke things."
+  },
+  company3: {
+    title: "Company C",
+    text: "Led a project, improved performance, shipped features."
+  }
+};
+
+function showContent(company) {
+  const content = document.getElementById("experience-content");
+
+  content.innerHTML = `
+    <h2>${data[company].title}</h2>
+    <p>${data[company].text}</p>
+  `;
+
+  document.querySelectorAll(".experience-sidebar button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  target.classList.add("active");
+}

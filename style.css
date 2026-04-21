@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f0f;
+    background: #4c4949;
     color: white;
 }
 /* HERO */
@@ -47,7 +47,7 @@ body {
     text-align: center;
 }
 .card {
-    background: #1a1a1a;
+    background: #4c4949;
     padding: 20px;
     margin: 20px auto;
     width: 300px;
@@ -88,7 +88,7 @@ body {
   height: 50px;
 
   font-size: 22px;
-  color: white;
+  color: rgb(164, 0, 0);
   background: #333;
   border-radius: 50%;
 
@@ -137,8 +137,8 @@ body {
   align-items: center;
 
   padding: 15px 30px;
-  background: #111;
-  color: white;
+  background: #4c4949;
+  color: rgb(164, 0, 0);
 
   z-index: 1000; /* keeps it above everything */
 }
@@ -163,8 +163,8 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: #111;
-  color: white;
+  background: #343434;
+  color: rgb(164, 0, 0);
   position: fixed;
   width: 100%;
   top: 0;
@@ -178,7 +178,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: rgb(164, 0, 0);
   text-decoration: none;
 }
 .navbar {
@@ -200,7 +200,7 @@ nav a {
   border: none;
   font-size: 26px;
   cursor: pointer;
-  color: white;
+  color: rgb(164, 0, 0);
   transition: transform 0.3s ease;
 }
 
@@ -304,4 +304,75 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 8px;
+}
+.section-header::after {
+    content: "";
+    background-color: white;
+    width: 300px;
+    height: 1px;
+    margin-top: 39px;
+    margin-left: 20px;
+    display: block;
+}
+.section-header {
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Optional: stick it to the bottom */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+.experience-container {
+  display: flex;
+  border: 1px solid #333;
+  margin-top: 30px;
+}
+
+.experience-sidebar {
+  width: 30%;
+  border-right: 1px solid #333;
+}
+
+.experience-sidebar button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.experience-sidebar button:hover,
+.experience-sidebar button.active {
+  background: #ff2a2a; /* your red accent */
+  color: white;
+}
+
+.experience-content {
+  width: 70%;
+  padding: 20px;
 }

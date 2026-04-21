@@ -53,36 +53,36 @@
     </section>
     <!-- ABOUT -->
     <section id="about">
-        <h2>/ about me</h2>
-
-        <div class="card">
-            <h3>Car Build</h3>
-            <p>Documenting my car journey.</p>
-        </div>
-
-        <div class="card">
-            <h3>Tech Experiments</h3>
-            <p>Trying new ideas and sharing results.</p>
+        <div class="section-header">
+            <h2>/ about me</h2>
         </div>
 
     </section>
     <!-- EXPERIENCE -->
     <section id="experience">
-        <h2>/ experience</h2>
-
-        <div class="card">
-            <h3>Car Build</h3>
-            <p>Documenting my car journey.</p>
+        <div class="section-header">
+            <h2>/ experience</h2>
         </div>
 
-        <div class="card">
-            <h3>Tech Experiments</h3>
-            <p>Trying new ideas and sharing results.</p>
+        </div>
+        <div class="experience-container">
+
+         <div class="experience-sidebar">
+         <button onclick="showContent('company1')" class="active">Company A</button>
+         <button onclick="showContent('company2')">Company B</button>
+         <button onclick="showContent('company3')">Company C</button>
+         </div>
+
+         <div class="experience-content" id="experience-content">
+         <h2>Company A</h2>
+         <p>Did some cool stuff here.</p>
         </div>
     </section>
     <!-- PHOTOGRAPHY -->
     <section id="photography">
-        <h2>/ photography</h2>
+        <div class="section-header">
+            <h2>/ photography</h2>
+        </div>
 
         <div class="card">
             <h3>Car Build</h3>
@@ -96,7 +96,9 @@
     </section>
     <!-- WRITING -->
     <section id="writing">
-        <h2>/ writing</h2>
+        <div class="section-header">
+            <h2>/ writing</h2>
+        </div>
 
         <div class="card">
             <h3>Car Build</h3>
@@ -111,7 +113,9 @@
     <!-- CONTACT -->
     <section id="contact">
   <div class="chatbox">
-    <h2>/ contact</h2>
+    <div class="section-header">
+      <h2>/ contact</h2>
+    </div>
 
     <input type="text" id="name" placeholder="Your name">
     <input type="email" id="email" placeholder="Your email">
@@ -123,5 +127,12 @@
   </div>
 </section>  
     <script src="script.js"></script>
+<footer>
+  <p>© <span id="year"></span> Built and designed by Asad Iqbal. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
