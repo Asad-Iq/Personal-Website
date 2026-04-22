@@ -14,8 +14,8 @@
 <script>
 const data = {
   company1: {
-    title: "Company A",
-    text: "Did some cool stuff here for Company A."
+    title: "Physics BSc",
+    text: "Studied physics and developed strong analytical skills with a focus on problem-solving and critical thinking."
   },
   company2: {
     title: "Company B",
@@ -72,6 +72,10 @@ function showContent(company) {
   </div>
 </header>
 <section id="home">
+    <div class="particle-wrapper">
+     <canvas id="particle-canvas"></canvas>
+     <img id="source-image" src="images.png" crossorigin="anonymous" hidden>
+    </div>
     <!-- HERO -->
     <section class="hero">
         <h1>
@@ -79,10 +83,15 @@ function showContent(company) {
         </h1>
         <p>Cars. Tech. Experiments.</p>
         <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
-  Contact Me
-</button>
+         Contact Me
+        </button>
+        <div class="particle-wrapper">
+         <canvas id="particle-canvas"></canvas>
+         <img id="source-image" src="images.png" crossorigin="anonymous" hidden>
+         </div>
+        </section>
 
-    </section>
+</section>
     <!-- ABOUT -->
     <section id="about">
         <div class="section-header">
@@ -100,9 +109,9 @@ function showContent(company) {
         <div class="experience-container">
 
          <div class="experience-sidebar">
-         <button onclick="showContent('company1')" class="active">Company A</button>
-         <button onclick="showContent('company2')">Company B</button>
-         <button onclick="showContent('company3')">Company C</button>
+         <button onclick="showContent('company1')" class="active">Physics BSc</button>
+         <button onclick="showContent('company2')">UoB</button>
+         <button onclick="showContent('company3')">UoL</button>
          </div>
 
          <div class="experience-content" id="experience-content">
@@ -144,10 +153,10 @@ function showContent(company) {
     </section>
     <!-- CONTACT -->
     <section id="contact">
-  <div class="chatbox">
-    <div class="section-header">
-      <h2>/ contact</h2>
-    </div>
+        <div class="section-header">
+         <h2>/ contact</h2>
+        </div>
+    <div class="chatbox">
 
     <input type="text" id="name" placeholder="Your name">
     <input type="email" id="email" placeholder="Your email">
@@ -156,7 +165,7 @@ function showContent(company) {
     <button onclick="sendEmail()">Send</button>
 
     <p id="status"></p>
-  </div>
+    </div>
 </section>  
     <script src="script.js"></script>
 <footer>
@@ -165,6 +174,105 @@ function showContent(company) {
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+const canvas = document.getElementById("particle-canvas");
+const ctx = canvas.getContext("2d");
+
+const wrapper = document.querySelector(".particle-wrapper");
+const image = document.getElementById("source-image");
+
+canvas.width = 420;
+canvas.height = 420;
+
+let particles = [];
+let mouse = { x: 9999, y: 9999 };
+
+// Mouse tracking
+wrapper.addEventListener("mousemove", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = e.clientX - rect.left;
+  mouse.y = e.clientY - rect.top;
+});
+
+wrapper.addEventListener("mouseleave", () => {
+  mouse.x = 9999;
+  mouse.y = 9999;
+});
+
+class Particle {
+  constructor(x, y) {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.baseX = x;
+    this.baseY = y;
+    this.size = 2;
+    this.density = Math.random() * 30 + 1;
+  }
+
+  update() {
+    let dx = mouse.x - this.x;
+    let dy = mouse.y - this.y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+
+    let forceRadius = 80;
+
+    if (distance < forceRadius) {
+      let force = (forceRadius - distance) / forceRadius;
+      let directionX = dx / distance;
+      let directionY = dy / distance;
+
+      this.x -= directionX * force * this.density;
+      this.y -= directionY * force * this.density;
+    } else {
+      // smooth return
+      this.x += (this.baseX - this.x) * 0.05;
+      this.y += (this.baseY - this.y) * 0.05;
+    }
+  }
+
+  draw() {
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(this.x, this.y, this.size, this.size);
+  }
+}
+
+// Create particles from image
+image.onload = () => {
+    console.log("image loaded");
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let y = 0; y < canvas.height; y += 4) {
+    for (let x = 0; x < canvas.width; x += 4) {
+      const index = (y * canvas.width + x) * 4;
+      const r = imageData.data[index];
+      const g = imageData.data[index + 1];
+      const b = imageData.data[index + 2];
+
+      const brightness = (r + g + b) / 3;
+
+      if (brightness < 200) {
+        particles.push(new Particle(x, y));
+      }
+    }
+  }
+
+  animate();
+};
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  requestAnimationFrame(animate);
+}
 </script>
 </body>
 </html>

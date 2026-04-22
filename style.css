@@ -6,20 +6,27 @@ body {
 }
 /* HERO */
 .hero {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  max-height: 100vh; /* accounts for navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: none;
+  text-align: center;
+  overflow: hidden;
 }
 
 .hero button {
     padding: 10px 20px;
-    margin-top: 20px;
+    margin-top: none;
     border: none;
     background: white;
     color: black;
     cursor: pointer;
+    align-items: center;
+}
+#home {
+    padding: -80px;
 }
 /* ABOUT */
 #about {
@@ -167,6 +174,7 @@ html {
   color: rgb(164, 0, 0);
   position: fixed;
   width: 100%;
+  height: 68px;
   top: 0;
   z-index: 1000;
 }
@@ -187,8 +195,11 @@ nav a {
   justify-content: space-between;
 
   padding: 15px 20px; /* reduce if needed */
-  box-sizing: border-box;
+  box-sizing: border-box;;
 }
+.navbar {
+    border-bottom: aqua 1px solid;
+}   
 .dropdown {
   position: relative;
   display: inline-block;
@@ -257,34 +268,42 @@ nav a {
   pointer-events: auto;
 }
 section {
-  padding-top: 80px;
-}
-section {
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
-section {
+#home {
+  scroll-margin-top: 200px;
+  margin-top: 80px;
+}
+#about {
+    margin-top: 80px;
+    scroll-margin-top: 80px;
+}
+#experience {
   scroll-margin-top: 80px;
+  margin-top: 80px;
 }
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+#photography {
+  scroll-margin-top: 80px;
+  margin-top: 80px;
+}
+#writing {
+  scroll-margin-top: 80px;
+  margin-top: 80px;
+}
+#contact {
+  scroll-margin-top: 80px;
+  margin-top: 80px;
+}
+.section-header {
+  scroll-margin-top: 80px;
 }
 body {
   margin: 0;
 }
-
-.hero {
-  width: 100%;
-}
 .chatbox {
   max-width: 400px;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -311,16 +330,17 @@ body {
     width: 300px;
     height: 1px;
     margin-top: 39px;
-    margin-left: 20px;
+    margin-left: 40px;
     display: block;
 }
 .section-header {
     width: 100%;
     padding-bottom: 20px;
     display: flex;
+    margin-left: 100px;
 
     align-items: center;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
 }
 footer {
@@ -346,13 +366,15 @@ footer {
 }
 .experience-container {
   display: flex;
-  border: 1px solid #333;
+  border: none;
   margin-top: 30px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .experience-sidebar {
   width: 30%;
-  border-right: 1px solid #333;
+  border-right: none;
 }
 
 .experience-sidebar button {
@@ -360,19 +382,46 @@ footer {
   width: 100%;
   padding: 15px;
   background: none;
-  border: none;
+  border-right: 1px solid #ff00009d; /* your red accent */
   color: inherit;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
 
-.experience-sidebar button:hover,
-.experience-sidebar button.active {
+.experience-sidebar button:hover {
   background: #ff2a2a; /* your red accent */
   color: white;
 }
-
+experience-sidebar button.active {
+  border-right: 4px solid #0077ff; /* your red accent */
+}
 .experience-content {
   width: 70%;
-  padding: 20px;
+  padding: 20px;;
+}
+html, body {
+  overflow-x: hidden;;
+}
+.particle-wrapper {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  position: relative;
+  margin-top: none;
+}
+
+#particle-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+/* subtle glow on hover */
+.particle-wrapper:hover {
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
+  transition: box-shadow 0.4s ease;
+}
+section {
+    min-height: 80vh;
 }
