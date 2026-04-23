@@ -6,19 +6,18 @@ body {
 }
 /* HERO */
 .hero {
-  max-height: 100vh; /* accounts for navbar */
+margin-top: -68px;
+  height: 20vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  margin-top: none;
   text-align: center;
-  overflow: hidden;
 }
 
 .hero button {
     padding: 10px 20px;
-    margin-top: none;
+    margin-top: 0px;
     border: none;
     background: white;
     color: black;
@@ -149,9 +148,6 @@ body {
 
   z-index: 1000; /* keeps it above everything */
 }
-body {
-  padding-top: 80px; /* match navbar height */
-}
 html {
   scroll-behavior: smooth;
 }
@@ -272,8 +268,8 @@ section {
   justify-content: center;
 }
 #home {
-  scroll-margin-top: 200px;
-  margin-top: 80px;
+    margin-top: 80px;
+    scroll-margin-top: 200px;
 }
 #about {
     margin-top: 80px;
@@ -407,7 +403,8 @@ html, body {
   height: 300px;
   margin: 20px auto;
   position: relative;
-  margin-top: none;
+  align-items: center;
+  margin-top: 80px;
 }
 
 #particle-canvas {
@@ -422,6 +419,13 @@ html, body {
   box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
   transition: box-shadow 0.4s ease;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 section {
-    min-height: 80vh;
+  min-height: 100vh;
+  scroll-margin-top: 80px;
 }
