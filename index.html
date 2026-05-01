@@ -44,6 +44,14 @@ function showContent(company) {
 }
 </script>
 <body>
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close" onclick="document.getElementById('popup').style.display='none'">&times;</span>
+      <h2>Welcome to my website!</h2>
+      <p>This site is still under development, i am currenntly working on optimization for mobile devices and adding content.</p>
+      <button onclick="closePopup()">Got it!</button>
+    </div>
+  </div>
 <header class="navbar">
   <div class="nav-left">
     <h2>Asad Iqbal</h2>
@@ -74,7 +82,7 @@ function showContent(company) {
 <section id="home">
     <div class="particle-wrapper">
      <canvas id="particle-canvas"></canvas>
-     <img id="source-image" src="1776896561462.png" crossorigin="anonymous" hidden>
+     <img id="source-image" src="rajat-chakraborty-6dml5EakYsc-unsplash.jpg" crossorigin="anonymous" hidden>
     </div>
     <!-- HERO -->
     <section class="hero">
@@ -87,7 +95,7 @@ function showContent(company) {
         </button>
         <div class="particle-wrapper">
          <canvas id="particle-canvas"></canvas>
-         <img id="source-image" src="1776896561462.png" crossorigin="anonymous" hidden>
+         <img id="source-image" src="rajat-chakraborty-6dml5EakYsc-unsplash.jpg" crossorigin="anonymous" hidden>
          </div>
         </section>
 
@@ -233,7 +241,7 @@ class Particle {
   }
 
   draw() {
-    ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.5 + 0.5})`;
+    ctx.fillStyle = "argb(255, 255, 255, 0.8)";
     ctx.fillRect(this.x, this.y, this.size, this.size);
     ctx.fillRect(this.x, this.y, this.size * this.z, this.size * this.z);
   }
@@ -275,6 +283,14 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
+</script>
+<script>
+  window.onload = function() {
+      document.getElementById('popup').style.display = 'flex';
+    };
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
 </script>
 </body>
 </html>
